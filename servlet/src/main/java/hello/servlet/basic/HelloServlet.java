@@ -15,5 +15,14 @@ public class HelloServlet extends HttpServlet {
     protected void service(HttpServletRequest request,
                            HttpServletResponse respose) throws ServletException, IOException {
         System.out.println("HelloServlet.service");
+        System.out.println("request = " + request);
+        System.out.println("respose = " + respose);
+
+        String username = request.getParameter("username");
+        System.out.println("username = " + username);
+
+        respose.setContentType("text/plain");
+        respose.setCharacterEncoding("utf-8");
+        respose.getWriter().write("hello " + username);
     }
 }
